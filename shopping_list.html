@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Shopping List</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>Shopping List</h1>
+    
+        <form id="form-list">
+            <fieldset>
+                <legend>List:</legend>
+                <label for="Item">Enter Item</label>
+                <input type="text" id="EnterItem" name="EnterItem"><br><br>
+                <input type="button" id="AddToList" value="Add To Beginning Of List"></button>
+                <input type="button" id="AddToListEnd" value="Add To End Of List"></button>
+                <input type="button" id="DeleteFirstItem" value="Delete First Item"></button>
+                <input type="button" id="DeleteLastItem" value="Delete Last Item"></button>
+            </fieldset>
+        </form>
+        <div id="groceriesContainer">
+            <h3>Groceries</h3>
+            <ul id="groceries"></ul>
+        </div>
+    </body>
+    <script src="shopping_list.js"></script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <title>About Me</title>
+<style>
+        
+    </style>
+</head>
+<body>
+    <h1 style="background-color:Black;">"Nicole Thomas"</h1>
+    <h1 style="color:White;">"Nicole Thomas"</h1>
+    <p style="background-color:Black;"></p>
+    <p style="color:white;"></p>
+    <picture>
+        <source media="(min-width: 150px)" srcset="Self_Pic.jpg">
+        <source media="(min-width: 150px)" srcset="Self_Pic.jpg">
+        <img src="Self_Pic.jpg" alt="Nicole" style="height: 150px;" style"width: 150px;">
+    </picture>
+    <h1>"Nicole Thomas"</h1>
+    <p>Hi! My name is Nicole Thomas, and this is my third semester in the Data Science and Programming Support Services.</p>
+    <p>I am a wife and mother of two wonderful kids, Justin who is almost 15, and Elizabeth who is 8. I also have a dog named George.</p>
+    <p>I hope to become more proficient in JavaScript, HTML, and CSS this semester.</p>
+    <script>
+     </script>
+    </body>
+    </html>

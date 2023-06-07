@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Timer</title>
+    </head>
+    <body>
+        <div id="display"></div>
+        <input type="button" id="startTimer" value="Start Timer"><br>
+        <input type="button" id="stopTimer" value="Stop Timer"><br>
+        <input type="button" id="resetTimer" value="Reset Timer"><br>
+        <p>The clock resets after 60 hours</p>
+    </body>
+    <script>
+        window.onload = () => {
+
+        let timerId = null;
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        let displayZero = "00";
+       
+
+        function displayFormat(unit) {
+            let str = displayZero.concat(unit.toString());
+            str = str.substr(str.length-2,2);
+
+            return str;
+        }
+
+       function startTimer() {
+        seconds++;
+        if(seconds/60 ==1) {
+            seconds = 0;
+            minutes++;
+        
+            if(minutes/60 ==1) {
+                minutes = 0;
+                hours++
+                
+                if(hours/60 ==1) {
+                    hours = 0;
+                }
+            }
+        }
+
+        displayTimer();
+       }
+
+       function stopTimer() {
+        clearInterval(timerId);
+       }
+
+       function resetTimer() {}
+
+       function displayTimer() {
+        document.getElementById("display").innerHTML = displayFormat(hours) + ":" + displayFormat(minutes) + ":" + displayFormat(seconds); 
+       }
+       
+       document.getElementById("startTimer").addEventListener("click", () => {
+        timerId = setInterval(startTimer, 1000);
+       }); 
+       
+       document.getElementById("stopTimer").addEventListener("click", stopTimer);
+       displayTimer();  
+    }
+        
+    </script>
+</html>

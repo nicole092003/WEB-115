@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Timer</title>
+    </head>
+    <body>
+        <div id="display"></div>
+        <input type="button" id="startTimer" value="Start Timer"><br>
+        <input type="button" id="stopTimer" value="Stop Timer"><br>
+        <input type="button" id="resetTimer" value="Reset Timer"><br>
+        <p>The clock resets and continues after 60 hours</p>
+    </body>
+    <script>
+        window.onload = () => {
+
+        let timerId = null;
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        let displayZero = "00";
+       
+
+        function displayFormat(unit) {
+            let str = displayZero.concat(unit.toString());
+            console.log(str.length, str);
+            str = str.substr(str.length-2,2);
+
+            return str;
+        }
+
+       function Timer() {
+        seconds++;
+        if(seconds/60 ==1) {
+            seconds = 0;
+            minutes++;
+        
+            if(minutes/60 ==1) {
+                minutes = 0;
+                hours++
+                
+                if(hours/60 ==1) {
+                    hours = 0;
+                }
+            }
+        }
+
+        displayTimer();
+       }
+
+       function startTimer() {
+        if (timerId === null) {
+            timerId = setInterval(Timer, 1000);
+        }
+       }
+
+       function stopTimer() {
+        clearInterval(timerId);
+        timerId = null;
+       }
+
+       function resetTimer() {
+        stopTimer();
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+
+
+        displayTimer();
+       }
+
+       function displayTimer() {
+        document.getElementById("display").innerHTML = displayFormat(hours) + ":" + displayFormat(minutes) + ":" + displayFormat(seconds); 
+       }
+       
+       document.getElementById("startTimer").addEventListener("click", startTimer);
+       document.getElementById("stopTimer").addEventListener("click", stopTimer);
+       document.getElementById("resetTimer").addEventListener("click", resetTimer);
+       displayTimer();  
+    }
+        
+    </script>
+</html>
